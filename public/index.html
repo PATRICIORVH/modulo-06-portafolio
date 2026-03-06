@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Tienda</title>
+</head>
+
+<body>
+
+<h1>Tienda de productos</h1>
+
+<button onclick="cargarProductos()">
+Ver productos
+</button>
+
+<ul id="lista"></ul>
+
+<script>
+
+async function cargarProductos(){
+
+const res = await fetch("/productos");
+
+const productos = await res.json();
+
+const lista = document.getElementById("lista");
+
+lista.innerHTML = "";
+
+productos.forEach(p => {
+
+const item = document.createElement("li");
+
+item.innerHTML = `
+${p.nombre} - $${p.precio} - stock: ${p.stock}
+<button onclick="comprar('${p.id}')">Comprar</button>
+`;
+
+lista.appendChild(item);
+
+});
+
+}
+
+async function comprar(id){
+
+await fetch("/venta",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+idProducto:id,
+cantidad:1
+})
+
+});
+
+alert("Compra realizada");
+
+}
+
+</script>
+
+</body>
+
+</html>

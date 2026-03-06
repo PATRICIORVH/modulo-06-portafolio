@@ -1,0 +1,18 @@
+[
+  {
+    "id": "c32ff82e-34fc-42d3-928c-f955adc53a94",
+    "producto": "Mouse",
+    "precio": 12000,
+    "cantidad": 2,
+    "total": 24000,
+    "fecha": "2026-03-06T22:17:44.793Z"
+  },
+  {
+    "id": "7266cba4-5247-4625-8700-2ee3ab71f3cc",
+    "producto": "Mouse",
+    "precio": 12000,
+    "cantidad": 1,
+    "total": 12000,
+    "fecha": "2026-03-06T22:33:10.034Z"
+  }
+]
